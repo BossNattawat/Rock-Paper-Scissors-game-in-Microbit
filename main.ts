@@ -26,13 +26,13 @@ function Random () {
             `)
     }
 }
-function ShowScore () {
-    basic.showNumber(Hearts)
-}
-function reset () {
+function Reset () {
     Hearts = 3
     basic.clearScreen()
     basic.showString("Reset!")
+}
+function ShowScore () {
+    basic.showNumber(Hearts)
 }
 let UserRandom = ""
 let Choices: string[] = []
@@ -42,6 +42,7 @@ Choices = ["Rock", "Paper", "Scissors"]
 while (true) {
     if (Hearts <= 0) {
         basic.showIcon(IconNames.Sad)
+        Reset()
     }
     if (input.buttonIsPressed(Button.A)) {
         Random()
@@ -52,6 +53,6 @@ while (true) {
         basic.pause(100)
         ShowScore()
     } else if (input.logoIsPressed()) {
-        reset()
+        Reset()
     }
 }
